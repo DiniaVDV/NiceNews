@@ -1,0 +1,316 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.3
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly install normalizeTree
+8 silly loadCurrentTree Finishing
+9 silly loadIdealTree Starting
+10 silly install loadIdealTree
+11 silly cloneCurrentTree Starting
+12 silly install cloneCurrentTreeToIdealTree
+13 silly cloneCurrentTree Finishing
+14 silly loadShrinkwrap Starting
+15 silly install loadShrinkwrap
+16 silly loadShrinkwrap Finishing
+17 silly loadAllDepsIntoIdealTree Starting
+18 silly install loadAllDepsIntoIdealTree
+19 silly fetchNamedPackageData axios
+20 silly mapToRegistry name axios
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry http://registry.npmjs.org/
+23 silly mapToRegistry data Result {
+23 silly mapToRegistry   raw: 'axios',
+23 silly mapToRegistry   scope: null,
+23 silly mapToRegistry   escapedName: 'axios',
+23 silly mapToRegistry   name: 'axios',
+23 silly mapToRegistry   rawSpec: '',
+23 silly mapToRegistry   spec: 'latest',
+23 silly mapToRegistry   type: 'tag' }
+24 silly mapToRegistry uri http://registry.npmjs.org/axios
+25 silly fetchNamedPackageData bootstrap-sass
+26 silly mapToRegistry name bootstrap-sass
+27 silly mapToRegistry using default registry
+28 silly mapToRegistry registry http://registry.npmjs.org/
+29 silly mapToRegistry data Result {
+29 silly mapToRegistry   raw: 'bootstrap-sass',
+29 silly mapToRegistry   scope: null,
+29 silly mapToRegistry   escapedName: 'bootstrap-sass',
+29 silly mapToRegistry   name: 'bootstrap-sass',
+29 silly mapToRegistry   rawSpec: '',
+29 silly mapToRegistry   spec: 'latest',
+29 silly mapToRegistry   type: 'tag' }
+30 silly mapToRegistry uri http://registry.npmjs.org/bootstrap-sass
+31 silly fetchNamedPackageData jquery
+32 silly mapToRegistry name jquery
+33 silly mapToRegistry using default registry
+34 silly mapToRegistry registry http://registry.npmjs.org/
+35 silly mapToRegistry data Result {
+35 silly mapToRegistry   raw: 'jquery',
+35 silly mapToRegistry   scope: null,
+35 silly mapToRegistry   escapedName: 'jquery',
+35 silly mapToRegistry   name: 'jquery',
+35 silly mapToRegistry   rawSpec: '',
+35 silly mapToRegistry   spec: 'latest',
+35 silly mapToRegistry   type: 'tag' }
+36 silly mapToRegistry uri http://registry.npmjs.org/jquery
+37 silly fetchNamedPackageData laravel-mix
+38 silly mapToRegistry name laravel-mix
+39 silly mapToRegistry using default registry
+40 silly mapToRegistry registry http://registry.npmjs.org/
+41 silly mapToRegistry data Result {
+41 silly mapToRegistry   raw: 'laravel-mix',
+41 silly mapToRegistry   scope: null,
+41 silly mapToRegistry   escapedName: 'laravel-mix',
+41 silly mapToRegistry   name: 'laravel-mix',
+41 silly mapToRegistry   rawSpec: '',
+41 silly mapToRegistry   spec: 'latest',
+41 silly mapToRegistry   type: 'tag' }
+42 silly mapToRegistry uri http://registry.npmjs.org/laravel-mix
+43 silly fetchNamedPackageData lodash
+44 silly mapToRegistry name lodash
+45 silly mapToRegistry using default registry
+46 silly mapToRegistry registry http://registry.npmjs.org/
+47 silly mapToRegistry data Result {
+47 silly mapToRegistry   raw: 'lodash',
+47 silly mapToRegistry   scope: null,
+47 silly mapToRegistry   escapedName: 'lodash',
+47 silly mapToRegistry   name: 'lodash',
+47 silly mapToRegistry   rawSpec: '',
+47 silly mapToRegistry   spec: 'latest',
+47 silly mapToRegistry   type: 'tag' }
+48 silly mapToRegistry uri http://registry.npmjs.org/lodash
+49 silly fetchNamedPackageData vue
+50 silly mapToRegistry name vue
+51 silly mapToRegistry using default registry
+52 silly mapToRegistry registry http://registry.npmjs.org/
+53 silly mapToRegistry data Result {
+53 silly mapToRegistry   raw: 'vue',
+53 silly mapToRegistry   scope: null,
+53 silly mapToRegistry   escapedName: 'vue',
+53 silly mapToRegistry   name: 'vue',
+53 silly mapToRegistry   rawSpec: '',
+53 silly mapToRegistry   spec: 'latest',
+53 silly mapToRegistry   type: 'tag' }
+54 silly mapToRegistry uri http://registry.npmjs.org/vue
+55 verbose request uri http://registry.npmjs.org/axios
+56 verbose request no auth needed
+57 info attempt registry request try #1 at 13:45:17
+58 verbose request id 6121595c391739e2
+59 http request GET http://registry.npmjs.org/axios
+60 info retry will retry, error on last attempt: Error: Invalid protocol: null
+61 verbose request uri http://registry.npmjs.org/bootstrap-sass
+62 verbose request no auth needed
+63 info attempt registry request try #1 at 13:45:17
+64 http request GET http://registry.npmjs.org/bootstrap-sass
+65 info retry will retry, error on last attempt: Error: Invalid protocol: null
+66 verbose request uri http://registry.npmjs.org/jquery
+67 verbose request no auth needed
+68 info attempt registry request try #1 at 13:45:17
+69 http request GET http://registry.npmjs.org/jquery
+70 info retry will retry, error on last attempt: Error: Invalid protocol: null
+71 verbose request uri http://registry.npmjs.org/laravel-mix
+72 verbose request no auth needed
+73 info attempt registry request try #1 at 13:45:17
+74 http request GET http://registry.npmjs.org/laravel-mix
+75 info retry will retry, error on last attempt: Error: Invalid protocol: null
+76 verbose request uri http://registry.npmjs.org/lodash
+77 verbose request no auth needed
+78 info attempt registry request try #1 at 13:45:17
+79 http request GET http://registry.npmjs.org/lodash
+80 info retry will retry, error on last attempt: Error: Invalid protocol: null
+81 verbose request uri http://registry.npmjs.org/vue
+82 verbose request no auth needed
+83 info attempt registry request try #1 at 13:45:17
+84 http request GET http://registry.npmjs.org/vue
+85 info retry will retry, error on last attempt: Error: Invalid protocol: null
+86 info attempt registry request try #2 at 13:45:27
+87 http request GET http://registry.npmjs.org/axios
+88 info retry will retry, error on last attempt: Error: Invalid protocol: null
+89 info attempt registry request try #2 at 13:45:27
+90 http request GET http://registry.npmjs.org/bootstrap-sass
+91 info retry will retry, error on last attempt: Error: Invalid protocol: null
+92 info attempt registry request try #2 at 13:45:27
+93 http request GET http://registry.npmjs.org/jquery
+94 info retry will retry, error on last attempt: Error: Invalid protocol: null
+95 info attempt registry request try #2 at 13:45:27
+96 http request GET http://registry.npmjs.org/laravel-mix
+97 info retry will retry, error on last attempt: Error: Invalid protocol: null
+98 info attempt registry request try #2 at 13:45:27
+99 http request GET http://registry.npmjs.org/lodash
+100 info retry will retry, error on last attempt: Error: Invalid protocol: null
+101 info attempt registry request try #2 at 13:45:27
+102 http request GET http://registry.npmjs.org/vue
+103 info retry will retry, error on last attempt: Error: Invalid protocol: null
+104 info attempt registry request try #3 at 13:46:27
+105 http request GET http://registry.npmjs.org/axios
+106 silly fetchPackageMetaData Error: Invalid protocol: null
+106 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+106 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+106 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+106 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+106 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+106 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+106 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+106 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+106 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+106 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+106 silly fetchPackageMetaData  error for axios@^0.15.2 Error: Invalid protocol: null
+106 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+106 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+106 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+106 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+106 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+106 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+106 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+106 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+106 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+106 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+107 info attempt registry request try #3 at 13:46:27
+108 http request GET http://registry.npmjs.org/bootstrap-sass
+109 silly fetchPackageMetaData Error: Invalid protocol: null
+109 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+109 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+109 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+109 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+109 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+109 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+109 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+109 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+109 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+109 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+109 silly fetchPackageMetaData  error for bootstrap-sass@^3.3.7 Error: Invalid protocol: null
+109 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+109 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+109 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+109 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+109 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+109 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+109 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+109 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+109 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+109 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+110 info attempt registry request try #3 at 13:46:27
+111 http request GET http://registry.npmjs.org/jquery
+112 silly fetchPackageMetaData Error: Invalid protocol: null
+112 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+112 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+112 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+112 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+112 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+112 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+112 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+112 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+112 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+112 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+112 silly fetchPackageMetaData  error for jquery@^3.1.0 Error: Invalid protocol: null
+112 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+112 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+112 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+112 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+112 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+112 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+112 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+112 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+112 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+112 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+113 info attempt registry request try #3 at 13:46:27
+114 http request GET http://registry.npmjs.org/laravel-mix
+115 silly fetchPackageMetaData Error: Invalid protocol: null
+115 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+115 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+115 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+115 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+115 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+115 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+115 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+115 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+115 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+115 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+115 silly fetchPackageMetaData  error for laravel-mix@^0.6.0 Error: Invalid protocol: null
+115 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+115 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+115 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+115 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+115 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+115 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+115 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+115 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+115 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+115 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+116 info attempt registry request try #3 at 13:46:27
+117 http request GET http://registry.npmjs.org/lodash
+118 silly fetchPackageMetaData Error: Invalid protocol: null
+118 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+118 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+118 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+118 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+118 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+118 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+118 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+118 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+118 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+118 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+118 silly fetchPackageMetaData  error for lodash@^4.16.2 Error: Invalid protocol: null
+118 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+118 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+118 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+118 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+118 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+118 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+118 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+118 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+118 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+118 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+119 info attempt registry request try #3 at 13:46:27
+120 http request GET http://registry.npmjs.org/vue
+121 silly fetchPackageMetaData Error: Invalid protocol: null
+121 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+121 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+121 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+121 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+121 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+121 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+121 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+121 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+121 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+121 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+121 silly fetchPackageMetaData  error for vue@^2.0.1 Error: Invalid protocol: null
+121 silly fetchPackageMetaData     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+121 silly fetchPackageMetaData     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+121 silly fetchPackageMetaData     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+121 silly fetchPackageMetaData     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+121 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+121 silly fetchPackageMetaData     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+121 silly fetchPackageMetaData     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+121 silly fetchPackageMetaData     at ontimeout (timers.js:386:14)
+121 silly fetchPackageMetaData     at tryOnTimeout (timers.js:250:5)
+121 silly fetchPackageMetaData     at Timer.listOnTimeout (timers.js:214:5)
+122 silly rollbackFailedOptional Starting
+123 silly rollbackFailedOptional Finishing
+124 silly runTopLevelLifecycles Finishing
+125 silly install printInstalled
+126 verbose stack Error: Invalid protocol: null
+126 verbose stack     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+126 verbose stack     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+126 verbose stack     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+126 verbose stack     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+126 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+126 verbose stack     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+126 verbose stack     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+126 verbose stack     at ontimeout (timers.js:386:14)
+126 verbose stack     at tryOnTimeout (timers.js:250:5)
+126 verbose stack     at Timer.listOnTimeout (timers.js:214:5)
+127 verbose cwd C:\xampp\htdocs\public\blog.dev
+128 error Windows_NT 6.1.7601
+129 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+130 error node v6.10.3
+131 error npm  v3.10.10
+132 error Invalid protocol: null
+133 error If you need help, you may report this error at:
+133 error     <https://github.com/npm/npm/issues>
+134 verbose exit [ 1, true ]
