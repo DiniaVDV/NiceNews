@@ -1,4 +1,4 @@
-@extends('app')
+@extends('pages.index')
 
 @section('content')
     <h1>{{$category->title}}</h1>
@@ -14,4 +14,5 @@
 
 
     @endforeach
+	@include('partials.pagination')
 @endsection

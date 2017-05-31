@@ -31,7 +31,7 @@ class Tag extends Model
 	{
 		$tag = self::where('name', $tagName)->first();
 		$tagId = $tag->id;
-		$articles = Tag::find($tagId)->articles()->orderBy('published_at')->get();
+		$articles = Tag::find($tagId)->articles()->orderBy('published_at')->paginate(1);
         return array('articles' => $articles, 'tag' => $tag );
     }
 	

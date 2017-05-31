@@ -1,5 +1,5 @@
 
-<div class="col-xs-2 col-md-2 col-lg-2 hidden-xs">
+<div class="col-xs-3 col-md-2 col-lg-2 hidden-xs">
 	@foreach($adverts as $advert)
 		@if($advert->rightsidebar == 'true')
 		<div class="panel panel-default advert">

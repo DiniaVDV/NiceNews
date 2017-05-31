@@ -1,4 +1,9 @@
+    <script>
+        $('#tag_list').select2({
+            placeholder: 'Choose a tag',
 
+        });
+    </script>
 <footer>
 	<div class="container">
 		<div class="row">

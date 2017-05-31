@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
 		View::share('categories', \App\Category::listOfCategories());
 		View::share('adverts', \App\Advert::getAdverts());
 		View::share('navbar', \App\Navbar::all());
+		View::share('lastArticles', \App\Article::getLastThreeArticles());
     }
 
     /**

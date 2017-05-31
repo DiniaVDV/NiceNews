@@ -27,13 +27,3 @@
 
 
 </div>
-
-@section('footer')
-    <script>
-        $('#tag_list').select2({
-            placeholder: 'Choose a tag',
-
-        });
-    </script>
-
-@endsection

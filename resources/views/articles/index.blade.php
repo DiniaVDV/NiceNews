@@ -1,4 +1,5 @@
-@extends('app')
+@extends('pages.index')
+
 
 @section('content')
 	

@@ -3,30 +3,40 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Article;
 
 class Category extends Model
 {
     public static function listOfCategories()
 	{
-		return Category::all();
+		return self::all();
 	}
 	
 
     public static function getArticles($categoryName)
 	{
-		$category = Category::where('name', $categoryName)->first();
-		$categoryId = $category->id;
-		$articles = Category::getArticlesById($categoryId);
+		$category = self::where('name', $categoryName)->first();
+		if($category->special_category == 1){
+			$allArticles = Article::all();
+			foreach($allArticles as $article){
+				if($article->special_section == 1){
+					$articles[] = $article;
+				}
+			}
+		}else{
+			$categoryId = $category->id;
+			$articles = self::getArticlesById($categoryId);
+		}
 		return array( 'articles' => $articles, 'category' =>  $category );
 	}	
 	
 	public static function getArticlesForCategories()
 	{
 		$categoryArticles= array();
-		$categories = Category::all();
+		$categories = self::all();
 		foreach($categories as $category){
 			$categoryId = $category->id;
-			$articles = Category::getArticlesById($categoryId);
+			$articles = self::getArticlesById($categoryId);
 			$categoryArticles[$categoryId] = $articles;
 		}
 		
@@ -35,7 +45,7 @@ class Category extends Model
 	
 	public static function getArticlesById($categoryId)
 	{
-		$articles = Category::find($categoryId)->articles()->orderBy('published_at')->get();
+		$articles = self::find($categoryId)->articles()->orderBy('published_at')->paginate(4);
 		return $articles;
 	}
 	
@@ -49,5 +59,6 @@ class Category extends Model
         return $this->hasMany('App\Article');
     }
 	
+
 	
 }

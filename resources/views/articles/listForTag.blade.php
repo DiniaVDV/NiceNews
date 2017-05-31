@@ -1,4 +1,4 @@
-@extends('app')
+@extends('pages.index')
 
 @section('content')
 	<h2>Новости по тегу "{{lcfirst($tag->name)}}":</h2>
@@ -11,4 +11,5 @@
         </h4>
     </article>
     @endforeach
+	@include('partials.pagination')
 @endsection

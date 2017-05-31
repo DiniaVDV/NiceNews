@@ -13,7 +13,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					@foreach($navbar as $element)
 					   @if($element->for_unreg_users == 1)
-						   <li><a href="{{$element->alias}}">{{$element->title}}</a></li>	
+						   <li><a href="{{asset($element->alias)}}">{{$element->title}}</a></li>	
 						@endif
 					@endforeach	
 				</ul>
@@ -26,15 +26,15 @@
 						@foreach($navbar as $element)
 							@if(Auth::user()->isThe('admin'))
 								@if($element->for_admin == 1)
-									<li><a href="{{$element->alias}}">{{$element->title}}</a></li>	
+									<li><a href="{{asset($element->alias)}}">{{$element->title}}</a></li>
 								@endif
 							@endif
 							@if(Auth::user()->isThe('moderator'))
 								@if($element->for_moderator == 1)
-									<li><a href="{{$element->alias}}">{{$element->title}}</a></li>	
+									<li><a href="{{asset($element->alias)}}">{{$element->title}}</a></li>	
 								@endif							
 							@elseif($element->for_reg_users == 1)
-							   <li><a href="{{$element->alias}}">{{$element->title}}</a></li>	
+							   <li><a href="{{asset($element->alias)}}">{{$element->title}}</a></li>	
 							@endif
 						@endforeach
 							<li role="separator" class="divider"></li>

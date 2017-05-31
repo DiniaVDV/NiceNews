@@ -1,4 +1,4 @@
-@extends('app')
+@extends('pages.index')
 
 @section('content')
     <h1>Edit: {!! $article->title !!}</h1>

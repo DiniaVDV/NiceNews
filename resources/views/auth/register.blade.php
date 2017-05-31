@@ -1,4 +1,4 @@
-@extends('app')
+@extends('pages.index')
 
 @section('content')
 <div class="panel panel-default">

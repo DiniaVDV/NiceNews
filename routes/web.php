@@ -17,13 +17,12 @@ Route::get('/', 'CategoriesController@indexCat');
 Route::get('about', 'PagesController@about');
 
 Route::get('contact', 'PagesController@contact');
-
+Route::get('articles/create', ['middleware' => 'auth', 'uses' => 'ArticlesController@create']);
 Route::resource('articles', 'ArticlesController');
 
 Route::get('categories/{name}', 'CategoriesController@showListArticles');
 Route::get('tags/{name}', 'TagsController@showListArticlesByTag');
-
+Route::post('articles/{id}', 'CommentsController@addComment');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-Route::get('/admin_panel', 'PagesController@admin');
+Route::get('/admin_panel', 'AdminController@admin');

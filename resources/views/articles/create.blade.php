@@ -1,4 +1,4 @@
-@extends('app')
+@extends('pages.index')
 
 @section('content')
 
@@ -6,7 +6,7 @@
 
     <hr/>
 
-    {!! Form::open(['action' => 'ArticlesController@index']) !!}
+    {!! Form::open(['action' => 'ArticlesController@show']) !!}
         @include('articles.form', ['submitButtonText' => 'Add Article'])
     {!! Form::close() !!}
 
