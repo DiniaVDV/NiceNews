@@ -9,7 +9,7 @@
 		@foreach($lastArticles as $lastArticle)
 			@if($lastArticle == $lastArticles[0])
 				<div class="item active">
-					<img class="first-slide" src="{{asset('/img')}}/{{$lastArticle->img}}" alt="First slide">
+					<img class="first-slide" src="{{asset('/img/articlesPhoto')}}/{{$lastArticle->img}}" alt="First slide">
 					<div class="container">
 						<div class="carousel-caption">
 							<h1>{{$lastArticle->title}}</h1>
@@ -19,7 +19,7 @@
 				</div>
 			@else
 				<div class="item">
-					<img class="second-slide" src="{{asset('/img')}}/{{$lastArticle->img}}" alt="First slide">
+					<img class="second-slide" src="{{asset('/img/articlesPhoto')}}/{{$lastArticle->img}}" alt="First slide">
 					<div class="container">
 						<div class="carousel-caption">
 							<h1>{{$lastArticle->title}}</h1>

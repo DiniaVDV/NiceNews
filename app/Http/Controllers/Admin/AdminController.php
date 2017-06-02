@@ -14,4 +14,8 @@ class AdminController extends Controller
         return view('admin.categories.show');
     }
 
+    public function changeBackgroundBody(){
+        return view('admin.background');
+    }
+
 }

@@ -83,4 +83,15 @@ class User extends Authenticatable
 
 		return $users;
 	}
+
+    /**
+     * Get a comments id is associated with current user!!!!
+     *
+     * @return array
+     */
+
+    public function getCommentListAttribute()
+    {
+        return $this->comments()->pluck('id')->toArray();
+    }
 }

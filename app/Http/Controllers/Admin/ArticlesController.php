@@ -64,7 +64,8 @@ class ArticlesController extends Controller
     public function create()
     {
         $tags = Tag::pluck('name', 'id');
-        return view('admin.articles.create', compact('tags'));
+        $categories = Category::pluck('title', 'id');
+        return view('admin.articles.create', compact('tags', 'categories'));
     }
 
     /**
@@ -79,7 +80,7 @@ class ArticlesController extends Controller
         $this->createArticle($request);
         //Article::create($request->all());
         //session()->flash('flash_message', 'You article has been created!');
-        return redirect('/')->with([
+        return redirect('admin_panel/articles')->with([
             'flash_message' => 'You article has been created!',
             'flash_message_important' => true
 
@@ -101,24 +102,28 @@ class ArticlesController extends Controller
        // $article = Article::findOrFail($id);
         $tags = Tag::pluck('name', 'id');
         $categories = Category::pluck('title', 'id');
-        $users = User::pluck('name', 'id');
-        return view('admin.articles.edit', compact('article', 'tags', 'users', 'categories'));
+        return view('admin.articles.edit', compact('article', 'tags', 'categories'));
 
     }
 
-    public function update(Article $article, ArticleRequest $request)
+    public function update($id, ArticleRequest $request)
     {
-        if($request->hasFile('img')){
+        $data = $request->all();
+
+        if($request->file('img')){
             $request->file('img')->move(public_path('img/articlesPhoto'), $request->file('img')->getClientOriginalName());
-            $data = $request->except(['img']);
             $data['img'] = $request->file('img')->getClientOriginalName();
         }
+        $article = Article::findOrFail($id);
         $article->update($data);
-        $article->save();
-
         $this->syncTags($article, $request->input('tag_list'));
         return redirect()->route('admin_panel.articles')->with('message', 'Статья создана.');
 
+    }
+    public function destroy($id)
+    {
+        Article::findOrFail($id)->delete();
+        return redirect()->route('admin_panel.articles')->with('message', 'Новость удалена.');;
     }
 
     /**

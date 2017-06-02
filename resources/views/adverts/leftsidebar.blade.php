@@ -1,6 +1,6 @@
 ﻿<div class="col-sm-3 col-md-3 col-lg-3 hidden-xs">
 	@foreach($adverts as $advert)
-		@if($advert->leftsidebar == 'true')
+		@if($advert->leftsidebar == 'Да')
 		<div class="panel panel-default advert">
 			<div class="panel-heading">
 				<h4 class="title">{{$advert->title}}</h4>

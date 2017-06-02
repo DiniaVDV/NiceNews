@@ -45,9 +45,10 @@ class ArticlesController extends Controller
      * @return Response
      */
 
-    public function show(Article $article)
+    public function show($id)
     {
-       // $article = Article::findOrFail($id);
+
+        $article = Article::findOrFail($id);
 		$catedArticle = Article::checkArticleOnSpec($article);
 		$comments = $article->comments()->orderBy('created_at', "desc")->paginate(5);
 		$users = User::usersForComments($comments);
@@ -56,6 +57,67 @@ class ArticlesController extends Controller
     }
 
 
+    /**
+     * Show the page to create a new Article
+     *
+     * @return Response
+     */
+
+    public function create()
+    {
+        $tags = Tag::pluck('name', 'id');
+        return view('articles.create', compact('tags'));
+    }
+
+    /**
+     * Save a new Article
+     *
+     * @param ArticleRequest $request
+     * @return Response
+     */
+
+    public function store(ArticleRequest $request)
+    {
+        $this->createArticle($request);
+        //Article::create($request->all());
+        //session()->flash('flash_message', 'You article has been created!');
+        return redirect('/')->with([
+            'flash_message' => 'You article has been created!',
+            'flash_message_important' => true
+
+        ]);
+    }
+
+    /* Edit an Article
+     *
+     *
+     * @return Response
+     */
+
+    public function edit(Article $article)
+    {
+
+
+        if (Gate::denies('edit-article', $article)) {
+            abort(403, 'Unauthorized action.');
+        }
+        // $article = Article::findOrFail($id);
+        $tags = Tag::pluck('name', 'id');
+        return view('articles.edit', compact('article', 'tags'));
+
+    }
+
+    public function update(Article $article, ArticleRequest $request)
+    {
+        //$article = Article::findOrFail($id);
+
+        $article->update($request->all());
+
+        $this->syncTags($article, $request->input('tag_list'));
+        $catedArticle = null;
+        return view('articles.show', compact('article', 'catedArticle'));
+
+    }
 
     /**
      * Sync up the list of tags in the database.
@@ -69,5 +131,22 @@ class ArticlesController extends Controller
     }
 
 
-	
+    /**
+     *
+     * Save a new article.
+     * @param ArticleRequest $request
+     * @return Article
+     */
+    private function createArticle(ArticleRequest $request)
+    {
+        $article = new Article($request->all());
+
+        \Auth::user()->articles()->save( $article);
+
+        $this->syncTags($article, $request->input('tag_list'));
+
+        return $article;
+    }
+
+
 }

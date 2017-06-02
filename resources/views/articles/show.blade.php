@@ -13,7 +13,7 @@
 				<h6>today <i class="fa fa-eye" aria-hidden="true">123</i></h6>
 			</div>
 		</div>
-			<img class="img" src="{{asset('/img')}}/{{$article->img}}" alt="Generic placeholder image" width="340" height="340">
+			<img class="img" src="{{asset('/img/articlesPhoto')}}/{{$article->img}}" alt="" width="340" height="340">
 
 		<article>
 		   {{$article->body}}
@@ -29,7 +29,7 @@
 					<h6>today <i class="fa fa-eye" aria-hidden="true">123</i></h6>
 				</div>
 			</div>
-				<img class="img" src="{{asset('/img')}}/{{$article->img}}" alt="Generic placeholder image" width="340" height="340">
+				<img class="img" src="{{asset('/img/articlesPhoto')}}/{{$article->img}}" alt="" width="340" height="340">
 
 			<article>
 			   {{$article->body}}

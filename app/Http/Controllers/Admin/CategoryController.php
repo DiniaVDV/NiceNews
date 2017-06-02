@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
-use App\Validates;
+
 use Illuminate\Http\Request;
 use App\Category;
 use App\Http\Requests\CategoryRequest;
@@ -11,7 +11,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(10);
         return view('admin.categories.show', compact('categories'));
     }
     public function edit($id)
@@ -34,12 +34,12 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
 
-        $res = Category::create($request->all());
+        Category::create($request->all());
 
         //Article::create($request->all());
         //session()->flash('flash_message', 'You article has been created!');
         return redirect('admin_panel/categories')->with([
-            'flash_message' => 'You article has been created!',
+            'flash_message' => 'Категория была довавлена!',
             'flash_message_important' => true
 
         ]);

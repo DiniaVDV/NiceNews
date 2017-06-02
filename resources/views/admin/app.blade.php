@@ -26,8 +26,8 @@
 
     <!-- Custom Fonts -->
     <link href="{{ asset('/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-
-    <link href="{{ asset('css/bootstrap.css') }}"  rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/color-picker.min.css') }}"  rel="stylesheet">
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/style.css') }}"  rel="stylesheet">
 	<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
@@ -38,76 +38,7 @@
     </script>
 </head>
 	<body>
-	<div id="wrapper">
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Категории<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{ asset('admin_panel/categories')}}">Редактировать</a>
-                                </li>
-                                <li>
-                                    <a href="{{ asset('admin_panel/category/create')}}">Добавить</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i>Новости<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{ asset('admin_panel/articles') }}">Редактировать</a>
-                                </li>
-                                <li>
-                                    <a href="{{ asset('admin_panel/articles/create') }}">Добавить</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Реклама<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{ asset('admin_panel/advetrs/edit') }}">Редактировать</a>
-                                </li>
-                                <li>
-                                    <a href="{{ asset('admin_panel/advetrs/create') }}">Добавить</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i>Меню пользователя<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{ asset('admin_panel/navbar/edit') }}">Редактировать</a>
-                                </li>
-                                <li>
-                                    <a href="{{ asset('admin_panel/navbar/create') }}">Добавить</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Внешний вид страницы<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{ asset('admin_panel/main_background/create') }}">Изменить фон сайта</a>
-                                </li>
-                                <li>
-                                    <a href="{{ asset('admin_panel/head_background/create') }}">Изменить фон шапки</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-        </div>
+           @include('admin.navbar')
 		<div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">

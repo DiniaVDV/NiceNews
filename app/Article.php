@@ -14,7 +14,10 @@ class Article extends Model
     protected $fillable =[
         'title',
         'body',
-        'created_at'
+        'created_at',
+        'img',
+        'category_id',
+        'special_section',
     ];
 
     protected $dates = ['published_at'];
