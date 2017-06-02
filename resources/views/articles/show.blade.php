@@ -1,8 +1,10 @@
 @extends('pages.index')
 
 @section('content')
+	<h1>{{$categoryName[0]['title']}}</h1>
+
 	@if(is_null($catedArticle))
-		<h1>{{$article->title}}</h1>
+		<h2>{{$article->title}}</h2>
 		<div class="row">
 			<div style="float:left;">
 				<h6>Total <i class="fa fa-eye" aria-hidden="true">123</i> </h6>
@@ -18,7 +20,7 @@
 		</article>
 	@else
 		@if(Auth::user())
-			<h1>{{$article->title}}</h1>
+			<h2>{{$article->title}}</h2>
 			<div class="row">
 				<div style="float:left;">
 					<h6>Total <i class="fa fa-eye" aria-hidden="true">123</i> </h6>
@@ -33,7 +35,7 @@
 			   {{$article->body}}
 			</article>	
 		@else
-			<h1>{{$article->title}}</h1>
+			<h2>{{$article->title}}</h2>
 			<div class="row">
 				<div style="float:left;">
 					<h6>Total <i class="fa fa-eye" aria-hidden="true">123</i> </h6>
@@ -61,43 +63,5 @@
 			</div>
 		</div>
     @endunless
-	<div class="comments row">
-		<div class="col-md-12">
-			<hr>
-			
-			<h3> Комментарии:</h3>
-			
-			<hr>
-			@if(Auth::user())
-	      {!! Form::open( ['action' => ['CommentsController@addComment', $article->id]]) !!}
-					<div class="form-group">
-						{!! Form::label('message', 'Ваше мнение:') !!}
-						{!! Form::textarea('body', null, ['class' => 'form-control']) !!}
-
-					</div>
-
-					<div class="form-group">
-						{!! Form::hidden('invisible', date('Y-m-d h:i:s'), ['class' => 'form-control']) !!}
-
-					</div>
-
-					<div class="form-group">
-						{!! Form::submit('ОК', ['class' => 'btn btn-primary form-control']) !!}
-
-					</div>
-	    {!! Form::close() !!}
-			@else
-				<h4> Вы не зарегистрированы. Зарегистируйтесь, чтобы выразить свое мнение. </h4>
-				<ul class='nav navbar-nav'>
-					<li>
-						<a href="{{asset('login')}}">Войти</a>
-					</li>	
-					<li>
-						<a href="register">Регистрация</a>
-					</li>	
-				<ul/>
-					
-			@endif
-		</div>
-	</div>
+	@include('partials.comments')
 @stop

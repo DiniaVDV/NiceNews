@@ -7,6 +7,16 @@ use App\Article;
 
 class Category extends Model
 {
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'name',
+        'title',
+        'position',
+        'special_category',
+    ];
+
     public static function listOfCategories()
 	{
 		return self::all();

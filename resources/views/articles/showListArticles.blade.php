@@ -14,5 +14,5 @@
 
 
     @endforeach
-	@include('partials.pagination')
+	@include('partials.pagination', ['paginate' => $articles])
 @endsection

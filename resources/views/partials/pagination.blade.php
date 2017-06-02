@@ -1,3 +1,3 @@
 <nav aria-label="Page navigation">
-	<?=$articles->render();?>
+	<?=$paginate->render();?>
 </nav>

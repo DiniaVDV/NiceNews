@@ -12,7 +12,7 @@
 	</div>
 		<div class="container">
 			@include('adverts.leftsidebar')
-			<div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				@include('partials.flash')
 				@yield('content')
 			</div>

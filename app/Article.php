@@ -45,6 +45,16 @@ class Article extends Model
     }
 
     /**
+     * An article is owned by category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
+
+    /**
      * Get the tags associated with the given article
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -58,6 +68,7 @@ class Article extends Model
      *
      * @return array
      */
+
     public function getTagListAttribute()
 	{
         return $this->tags->pluck('id')->toArray();
@@ -65,7 +76,7 @@ class Article extends Model
 	
 	public static function getLastThreeArticles()
 	{
-		return self::orderBy('published_at')->limit(3)->get();
+		return self::orderBy('created_at', "desc")->limit(3)->get();
 	}
 	
 	public static function getSpecialArticle($article)
@@ -101,8 +112,34 @@ class Article extends Model
 	}
 	public static function getSpecArticles()
 	{
-		$articles = self::where('special_section', 1)->paginate(5);
+		$articles = self::where('special_section', 1)->orderBy('created_at', "desc")->paginate(5);
 		return $articles;
 	}
+    /**
+     * Get the comment associated with the given article
+     *
+     * @return mixed
+     */
+    public function comments()
+    {
+        return $this->belongsToMany('App\Comment');
+    }
+
+    public static function getCategories($articles)
+    {
+        $categories = array();
+        foreach ($articles as $article){
+            $categories[$article->id] = self::find($article->id)->category()->get();
+        }
+        return $categories;
+    }
+    public static function getUsers($articles)
+    {
+        $categories = array();
+        foreach ($articles as $article){
+            $categories[$article->id] = self::find($article->id)->user()->get();
+        }
+        return $categories;
+    }
 	
 }
