@@ -18,9 +18,10 @@ Route::get('/profile/{id}', 'UserController@profile');
 Route::get('/user/{id}/comments', 'UserController@showComments');
 Route::post('/rosinger', 'UserController@rosinger');
 
+
 Route::get('/articles',  'ArticlesController@index');
 Route::get('/articles/{id}',  'ArticlesController@show');
-//Route::resource('/articles', 'ArticlesController');
+Route::post('/find', 'ArticlesController@find');
 
 Route::get('/categories/{name}', 'CategoriesController@showListArticles');
 Route::get('/user/{id}/comments/', 'UserController@showComments');

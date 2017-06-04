@@ -133,3 +133,7 @@ body{
 .close:hover {
 	background-color: rgba(252, 20, 0, 0.8);
 }
+
+.find{
+	margin-top: 25px;
+}

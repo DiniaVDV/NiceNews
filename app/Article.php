@@ -132,8 +132,11 @@ class Article extends Model
     {
         $topArticlesCount = array();
         $articles = self::all();
+
         foreach ($articles as $article){
-            $topArticlesCount[$article->id] = self::find($article->id)->comments()->where('created_at', Carbon::now())->groupBy('article_id')->count();
+
+            $topArticlesCount[$article->id] = self::find($article->id)->comments()->where('created_at', Carbon::now())->groupBy('article_id');
+
         }
 
         arsort($topArticlesCount);

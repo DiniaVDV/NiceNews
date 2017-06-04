@@ -1,6 +1,11 @@
     <script>
         $('#tag_list').select2({
-            placeholder: 'Choose a tag',
+            placeholder: 'Выберите теги',
+
+        });
+
+        $('#category_id').select2({
+            placeholder: 'Выберите категорию',
 
         });
     </script>

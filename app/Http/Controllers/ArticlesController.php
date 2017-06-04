@@ -132,9 +132,11 @@ class ArticlesController extends Controller
     /**
      *
      * Save a new article.
+     *
      * @param ArticleRequest $request
      * @return Article
      */
+
     private function createArticle(ArticleRequest $request)
     {
         $article = new Article($request->all());
@@ -146,5 +148,48 @@ class ArticlesController extends Controller
         return $article;
     }
 
-
+    public function find(Request $request)
+    {
+       $result = $request->all();
+       $tagList = $result['tag_list'];
+       $categoriesId = $result['category_id'];
+       $date = $result['datepicker1'];
+       $articlesTag = array();
+       $articlesCategory = array();
+       if(isset($categoriesId)){
+           foreach ($categoriesId as $categoryId){
+               $articlesCategory[] = Category::findOrFail($categoryId)->articles()->get();
+           }
+       }
+       $articles = array();
+       $articlesTags = array();
+       if(isset($articlesCategory)){
+           if(isset($tagList)){
+               foreach($tagList as $tagId){
+                   foreach ($articlesCategory as $articleCategory) {
+                       foreach ($articleCategory as $article) {
+                           $tags = $article->tags()->get();
+                           dd($tags);
+                           foreach ($tags as $tag) {
+                               if ($tagId == $tag->id) {
+                                   if ($article->created_at) {
+                                       $articles[] = $article;
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }else{
+               foreach ($articlesCategory as $articleCategory){
+                   if($articleCategory->created_at){
+                       $articles[] = $articleCategory;
+                   }
+               }
+           }
+       }else{
+            dd(1);
+       }
+       return view('pages.found', compact('articles'));
+    }
 }
