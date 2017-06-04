@@ -8,7 +8,8 @@
     <meta name="author" content="Dinia">
 
     <title>Админ панель</title>
-
+    <!-- jQuery -->
+    <script src="{{ asset('/js/jquery-3.1.1.min.js') }}"></script>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('/vendor/bootstrap/css/bootstrap.min.cs') }}s" rel="stylesheet">
 
@@ -36,19 +37,25 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <style>
+        body{
+            padding-top: 5px;
+        }
+    </style>
 </head>
 	<body>
-           @include('admin.navbar')
-		<div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    @yield('content')
+        <div id="wrapper">
+            @include('admin.navbar')
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @yield('content')
 
+                    </div>
                 </div>
-			</div>
+             </div>
          </div>
-    <!-- jQuery -->
-    <script src="{{ asset('/vendor/jquery/jquery.min.js') }}"></script>
+
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -63,24 +70,11 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('/dist/js/sb-admin-2.js') }}"></script>
-		<script>
-			$('div.alert').not('.alert-important').delay(3000).slideUp(300);
 
-            function confirmDelete(name){
-                if(confirm('Вы действительно хотите удалить ' + name + '?')){
-                    return true;
-                }else {
-                    return false;
-                }
-            }
-		</script>
-		<script src="{{ asset('js/select2.min.js') }}"></script>
-		<script src="{{ asset('js/main.js') }}"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(".js-example-basic-single").select2();
-            });
-        </script>
-		@include('layouts.footer')
+    <script src="{{ asset('js/select2.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+
+    @include('layouts.footer')
+    @include('admin.scripts')
 	</body>
 </html>

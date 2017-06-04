@@ -30,18 +30,20 @@
         @endif
         <div class="comments">
             @foreach($comments as $comment)
-                <div id="comm_{{$comment->id}}">
-                    <button onclick="count(this)" class="btn btn-default btn-xs btn-danger" id="min_{{$comment->id}}">
-                        <i class="fa fa-minus" aria-hidden="true"></i>
-                    </button>
-                    <span class="badge like_{{$comment->id}}">{{$comment->like}}</span>
-							<button onclick="count(this)" class="btn btn-default btn-xs btn-success"
-                                    id="plus_{{$comment->id}}">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-							</button>
-                        {{$users[$comment->id][0]->name}}. Дата: {{$comment->created_at}}
-                        <p><strong>{{$comment->message}}</strong></p>
-                </div>
+                @if($comment->status == 'published')
+                    <div id="comm_{{$comment->id}}">
+                        <button onclick="count(this)" class="btn btn-default btn-xs btn-danger" id="min_{{$comment->id}}">
+                            <i class="fa fa-minus" aria-hidden="true"></i>
+                        </button>
+                        <span class="badge like_{{$comment->id}}">{{$comment->like}}</span>
+                                <button onclick="count(this)" class="btn btn-default btn-xs btn-success"
+                                        id="plus_{{$comment->id}}">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button>
+                            {{$users[$comment->id][0]->name}}. Дата: {{$comment->created_at}}
+                            <p><strong>{{$comment->message}}</strong></p>
+                    </div>
+                @endif
             @endforeach
             @include('partials.pagination', ['paginate' => $comments])
         </div>
@@ -57,7 +59,7 @@
         $(form).submit(function (event) {
             event.preventDefault();
             i++;
-            var categoryName = '<?=$categoryName[0]['name'];?>';
+            var categoryName = '<?=$categoryName[0]->name;?>';
             var user = <?=Auth::user()?>;
             var article = <?=$article?>;
             var today = new Date();
@@ -68,20 +70,23 @@
 
             if ($(comm).val() !== '') {
                 if(categoryName = 'politics'){
+                    console.log(categoryName);
                     alert('Ваш комментарий будет добавлен после одобрения модератора!');
                     $.ajax({
                         type: 'GET',
                         url: $(form).attr('action'),
                         data: {
                             comment: $(comm).val(),
-                            user_id: user.id,
-                            article_id: article.id,
+                            userId: user.id,
+                            articleId: article.id,
+                            categoryName: categoryName,
                         },
-                        success: function (comment) {
+                        success: function (data) {
+                            console.log(data);
                         },
                         error: function (data) {
                             console.log(data);
-                            $(comm).val('');
+                            data.responseText;
                         }
                     });
 
@@ -112,6 +117,8 @@
                         }
                     });
                 }
+            }else{
+                alert('Поле пустое!');
             }
 
 

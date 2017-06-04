@@ -52,5 +52,11 @@ Route::group(['prefix' => 'admin_panel', 'namespace' => 'Admin'], function()
 
     Route::get('/color_background', 'AdminController@changeBackgroundBody');
     Route::post('/color_background', 'AdminController@applyBackgroundBody');
+    Route::get('/show_comments_check', 'CommentsController@showCheckComments');
+
+    Route::resource('/comments', 'CommentsController');
+    Route::get('/comments/{id}/edit', 'CommentsController@edit');
+    Route::get('/comments/{id}/delete', 'CommentsController@delete');
+    Route::get('/comments/{id}/checked', 'CommentsController@checked');
 });
 

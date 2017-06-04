@@ -41,12 +41,12 @@
 </div>
 <div class="form-group">
     {!! Form::label('leftsidebar', 'Разместить в левом блоке:') !!}
-    {!! Form::select('leftsidebar', ['Нет' => 'Нет', 'Да' => 'Да'],  null, ['id' => 'leftsidebar', 'class' => 'form-control']) !!}
+    {!! Form::select('leftsidebar', ['false' => 'Нет', 'true' => 'Да'],  null, ['id' => 'leftsidebar', 'class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
     {!! Form::label('rightsidebar', 'Разместить в правом блоке:') !!}
-    {!! Form::select('rightsidebar', ['Нет' => 'Нет', 'Да' => 'Да'],  null, ['id' => 'rightsidebar', 'class' => 'form-control']) !!}
+    {!! Form::select('rightsidebar', ['false' => 'Нет', 'true' => 'Да'],  null, ['id' => 'rightsidebar', 'class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

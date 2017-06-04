@@ -109,8 +109,6 @@ class ArticlesController extends Controller
 
     public function update(Article $article, ArticleRequest $request)
     {
-        //$article = Article::findOrFail($id);
-
         $article->update($request->all());
 
         $this->syncTags($article, $request->input('tag_list'));

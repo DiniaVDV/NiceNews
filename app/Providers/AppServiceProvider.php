@@ -21,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
 		View::share('adverts', \App\Advert::getAdverts());
 		View::share('dropdown', \App\Dropdown::all());
 		View::share('lastArticles', \App\Article::getLastThreeArticles());
+		View::share('lastFourComments', \App\Comment::getLastFourComments());
     }
 
     /**

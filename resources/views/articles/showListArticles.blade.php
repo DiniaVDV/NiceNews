@@ -14,5 +14,7 @@
 
 
     @endforeach
-	@include('partials.pagination', ['paginate' => $articles])
+    @if($category->name != 'analitics')
+    	@include('partials.pagination', ['paginate' => $articles])
+    @endif
 @endsection

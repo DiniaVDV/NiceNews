@@ -10,14 +10,19 @@ class CommentsController extends Controller
 {
     public function store()
 	{
-	    dd(1);
-		$article_id = $_GET['article_id'];
+        $categoryName = $_GET['categoryName'];
 
-		$comment = new Comment;
-		$comment->message = $_GET['comment'];
-		$comment->user_id = $_GET['user_id'];
-		$comment->save();
-		$comment->articles()->attach($article_id);
+        $articleId = $_GET['articleId'];
+        $comment = new Comment;
+        $comment->message = $_GET['comment'];
+        $comment->user_id = $_GET['userId'];
+		if ($categoryName == 'politics'){
+            $comment->status = 'check';
+        }else{
+            $comment->status = 'published';
+        }
+        $comment->save();
+        $comment->articles()->attach($articleId);
 		return $comment;
 	}
 	
