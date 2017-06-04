@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Dinia">
+
     <title>Nicenews</title>
     <link href="{{ asset('css/bootstrap.css') }}"  rel="stylesheet" type="text/css"/>
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
@@ -15,7 +16,9 @@
 	<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
 	<script src="{{ asset('js/bootstrap.min.js') }}" ></script>
 	<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.cookie.js') }}" type="text/javascript" ></script>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<link rel="SHORTCUT ICON" href="{{ asset('/favicon.png') }}" type="image/png">
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -40,18 +43,20 @@
             });
         } );
         var backgroundList = <?=json_encode($backgroundList)?>;
-        console.log(backgroundList[0].body_color);
-
 	</script>
 
 
 </head>
 	<body>
+		@include('partials.rosinger')
 		@yield('body')
 		<script>
+
 			$('div.alert').not('.alert-important').delay(3000).slideUp(300);
+			/*********change color header and body********************/
             $('body').css("background-color", backgroundList[0].body_color );
             $('.main_navbar').css("background-color", backgroundList[0].header_color );
+            /***********************************************************/
 		</script>
 		<script src="{{ asset('js/select2.min.js') }}"></script>
 		<script src="{{ asset('js/main.js') }}"></script>

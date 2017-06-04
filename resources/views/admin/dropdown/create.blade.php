@@ -4,7 +4,7 @@
     <br/>
 
     {!! Form::open(['action' => 'Admin\DropdownController@store']) !!}
-    @include('admin.dropdown.form')
+    @include('admin.dropdown.form', ['submitButtonText' => 'Создать пункт меню'])
     {!! Form::close() !!}
     @include('errors.list')
 @endsection

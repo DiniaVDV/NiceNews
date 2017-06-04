@@ -10,6 +10,7 @@ class CommentsController extends Controller
 {
     public function store()
 	{
+	    dd(1);
 		$article_id = $_GET['article_id'];
 
 		$comment = new Comment;

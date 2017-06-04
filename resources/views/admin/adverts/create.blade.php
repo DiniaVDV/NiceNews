@@ -4,7 +4,7 @@
     <br/>
 
     {!! Form::open(['action' => 'Admin\AdvertsController@store']) !!}
-        @include('admin.adverts.form')
+        @include('admin.adverts.form', ['submitButtonText' => 'Создать рекламу'])
     {!! Form::close() !!}
     @include('errors.list')
 @endsection

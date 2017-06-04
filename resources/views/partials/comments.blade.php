@@ -18,7 +18,7 @@
             </form>
         @else
             <h4> Вы не зарегистрированы. Зарегистируйтесь, чтобы выразить свое мнение. </h4>
-            <div class='nav navbar-nav'>
+            <div class='nav navbar-nav col-md-12'>
                 <li>
                     <a href="{{asset('login')}}">Войти</a>
                 </li>
@@ -57,6 +57,7 @@
         $(form).submit(function (event) {
             event.preventDefault();
             i++;
+            var categoryName = '<?=$categoryName[0]['name'];?>';
             var user = <?=Auth::user()?>;
             var article = <?=$article?>;
             var today = new Date();
@@ -66,30 +67,51 @@
             var comm = $('.comment'); //comment text
 
             if ($(comm).val() !== '') {
-                $.ajax({
-                    type: 'GET',
-                    url: $(form).attr('action'),
-                    data: {
-                        comment: $(comm).val(),
-                        user_id: user.id,
-                        article_id: article.id,
-                    },
-                    success: function (comment) {
-                        var id = comment.id;
-                        $(formComments).attr('id', 'comm_' + id + '');
-                        $(formComments).append("<div id='comm_" + id + "'><button onclick='count(this)' " +
-                            "class='btn btn-default btn-xs btn-danger' id='min_" + id + "'><i class='fa fa-minus' " +
-                            "aria-hidden='true'></i></button> <span class='badge like_" + id + "'>" + 0 +
-                            "</span> <button onclick='count(this)' class='btn btn-default btn-xs btn-success' id='plus_" + id +
-                            "'><i class='fa fa-plus' aria-hidden='true'></i></button> " + user.name + ". Дата:  " + currentDate +
-                            " <p><strong>" + $(comm).val() + "</strong></p></div>");
-                        $(comm).val('');
-                    },
-                    error: function (data) {
-                        console.log(data);
-                        $(comm).val('');
-                    }
-                });
+                if(categoryName = 'politics'){
+                    alert('Ваш комментарий будет добавлен после одобрения модератора!');
+                    $.ajax({
+                        type: 'GET',
+                        url: $(form).attr('action'),
+                        data: {
+                            comment: $(comm).val(),
+                            user_id: user.id,
+                            article_id: article.id,
+                        },
+                        success: function (comment) {
+                        },
+                        error: function (data) {
+                            console.log(data);
+                            $(comm).val('');
+                        }
+                    });
+
+                    $(comm).val('');
+                }else{
+                    $.ajax({
+                        type: 'GET',
+                        url: $(form).attr('action'),
+                        data: {
+                            comment: $(comm).val(),
+                            user_id: user.id,
+                            article_id: article.id,
+                        },
+                        success: function (comment) {
+                            var id = comment.id;
+                            $(formComments).attr('id', 'comm_' + id + '');
+                            $(formComments).append("<div id='comm_" + id + "'><button onclick='count(this)' " +
+                                "class='btn btn-default btn-xs btn-danger' id='min_" + id + "'><i class='fa fa-minus' " +
+                                "aria-hidden='true'></i></button> <span class='badge like_" + id + "'>" + 0 +
+                                "</span> <button onclick='count(this)' class='btn btn-default btn-xs btn-success' id='plus_" + id +
+                                "'><i class='fa fa-plus' aria-hidden='true'></i></button> " + user.name + ". Дата:  " + currentDate +
+                                " <p><strong>" + $(comm).val() + "</strong></p></div>");
+                            $(comm).val('');
+                        },
+                        error: function (data) {
+                            console.log(data);
+                            $(comm).val('');
+                        }
+                    });
+                }
             }
 
 

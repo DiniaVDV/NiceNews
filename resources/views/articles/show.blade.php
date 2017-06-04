@@ -7,10 +7,10 @@
 		<h2>{{$article->title}}</h2>
 		<div class="row">
 			<div style="float:left;">
-				<h6>Total <i class="fa fa-eye" aria-hidden="true">123</i> </h6>
+				<h6>Total <i class="fa fa-eye" aria-hidden="true"> <span class="badge totalViewers">123</span></i> </h6>
 			</div>
 			<div class="pull-right">
-				<h6>today <i class="fa fa-eye" aria-hidden="true">123</i></h6>
+				<h6>now <i class="fa fa-eye" aria-hidden="true"> <span class="badge nowViewers">1</span></i></h6>
 			</div>
 		</div>
 			<img class="img" src="{{asset('/img/articlesPhoto')}}/{{$article->img}}" alt="" width="340" height="340">
@@ -26,7 +26,7 @@
 					<h6>Total <i class="fa fa-eye" aria-hidden="true">123</i> </h6>
 				</div>
 				<div class="pull-right">
-					<h6>today <i class="fa fa-eye" aria-hidden="true">123</i></h6>
+					<h6>now <i class="fa fa-eye" aria-hidden="true">123</i></h6>
 				</div>
 			</div>
 				<img class="img" src="{{asset('/img/articlesPhoto')}}/{{$article->img}}" alt="" width="340" height="340">
@@ -41,7 +41,7 @@
 					<h6>Total <i class="fa fa-eye" aria-hidden="true">123</i> </h6>
 				</div>
 				<div class="pull-right">
-					<h6>today <i class="fa fa-eye" aria-hidden="true">123</i></h6>
+					<h6>now <i class="fa fa-eye" aria-hidden="true">123</i></h6>
 				</div>
 			</div>
 			<article style="margin-top:50px;">
@@ -64,4 +64,30 @@
 		</div>
     @endunless
 	@include('partials.comments')
+	<script>
+
+        /**
+         * Returns a random integer between min (inclusive) and max (inclusive)
+         * Using Math.round() will give you a non-uniform distribution!
+         */
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function showViewers() {
+            var nowViewers= getRandomInt(1, 5);
+            console.log(nowViewers);
+            var totalViewers = parseInt($('.totalViewers').text());
+            $('.nowViewers').text(nowViewers);
+            totalViewers += nowViewers;
+            $('.totalViewers').text(totalViewers);
+        }
+        function uplodaTotalViewrs(){
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
+            var currentDate = date + ' ' + time;
+		}
+        setInterval(showViewers, 5000);
+
+//		console.log(getRandomInt(1, 5));
+	</script>
 @stop

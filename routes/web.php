@@ -16,6 +16,7 @@ Route::get('/', 'CategoriesController@indexCat');
 
 Route::get('/profile/{id}', 'UserController@profile');
 Route::get('/user/{id}/comments', 'UserController@showComments');
+Route::post('/rosinger', 'UserController@rosinger');
 
 Route::get('/articles',  'ArticlesController@index');
 Route::get('/articles/{id}',  'ArticlesController@show');

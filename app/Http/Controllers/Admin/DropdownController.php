@@ -31,12 +31,16 @@ class DropdownController extends Controller
 
     public function edit($id)
     {
-
         $dropdown = Dropdown::all();
-
-        return view('admin.', compact('navbar'));
+        return view('admin.dropdown.edit', compact('dropdown'));
     }
 
+    public function update($id, DropdownRequest $request)
+    {
+        $dropdown = Dropdown::findOrFail($id);
+        $dropdown->update($request->all());
+        return redirect()->route('admin_panel.dropdown')->with('message', 'Пункт меню обновлена.');
+    }
     public function destroy($id)
     {
         Dropdown::findOrFail($id)->delete();
