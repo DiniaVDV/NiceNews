@@ -23,8 +23,6 @@ class AdvertsController extends Controller
     public function store(AdvertsRequest $request)
     {
         Advert::create($request->all());
-        //Article::create($request->all());
-        //session()->flash('flash_message', 'You article has been created!');
         return redirect('admin_panel/adverts')->with([
             'flash_message' => 'Реклама добавлена!',
             'flash_message_important' => true
@@ -41,13 +39,19 @@ class AdvertsController extends Controller
     {
         $advert = Advert::findOrFail($id);
         $advert->update($request->all());
-        return redirect('admin_panel/adverts')->with('message', 'Реклама обновлена.');
+        return redirect('admin_panel/adverts')->with([
+            'flash_message' => 'Реклама обновлена!',
+            'flash_message_important' => true
+        ]);
     }
 
     public function destroy($id)
     {
         Advert::findOrFail($id)->delete();
-        return redirect()->route('admin_panel/adverts')->with('message', 'Реклама удалена.');
+        return redirect()->route('admin_panel/adverts')->with([
+            'flash_message' => 'Реклама удалена!',
+            'flash_message_important' => true
+        ]);
     }
 
 }

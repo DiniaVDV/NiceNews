@@ -12,14 +12,12 @@ class CommentsController extends Controller
 
     public function index()
     {
-
         $comments = Comment::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.comments.show', compact('comments'));
     }
     public function showCheckComments()
     {
         $comments = Comment::where('status', 'check')->orderBy('created_at', 'desc')->paginate(10);
-
         return view('admin.comments.showCheckComments', compact('comments'));
     }
 
@@ -35,7 +33,10 @@ class CommentsController extends Controller
     {
         $comment = Comment::findOrFail($id);
         $comment->update($request->all());
-        return redirect('admin_panel/comments')->with('message', 'Комментарий обновлен.');
+        return redirect('admin_panel/comments')->with([
+            'flash_message' => 'Комментарий обновлен!',
+            'flash_message_important' => true
+        ]);
     }
 
     public function delete($id)
@@ -43,8 +44,12 @@ class CommentsController extends Controller
         Comment::findOrFail($id)->articles()->detach();
         Comment::findOrFail($id)->delete();
 
-        return redirect('admin_panel/comments')->with('message', 'Комменарий удален.');
+        return redirect('admin_panel/comments')->with([
+            'flash_message' => 'Комментарий удален!',
+            'flash_message_important' => true
+        ]);
     }
+
     public function checked($id)
     {
         $comment = Comment::findOrFail($id);
@@ -53,6 +58,19 @@ class CommentsController extends Controller
         return $this->showCheckComments();
     }
 
+    public function create()
+    {
+        $articles = Article::pluck('title', 'id');
+        return view('admin.comments.create', compact('articles'));
+    }
 
+    public function store(CommentsRequest $request)
+    {
+        Comment::create($request->all());
+        return redirect('admin_panel/comments')->with([
+            'flash_message' => 'Комментарий создан!',
+            'flash_message_important' => true
+        ]);
+    }
 
 }

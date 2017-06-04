@@ -23,8 +23,8 @@
 
     </div>
     <div class="form-group">
-        <label for="special_category">Ограниченый доступ:</label>
-        <input type="text" id="special_category" name="special_category" class="form-control" value="{{$article->special_section}}"/>
+        <label for="special_section">Ограниченый доступ:</label>
+        <input type="text" id="special_section" name="special_section" class="form-control" value="{{$article->special_section}}"/>
     </div>
     <div class="form-group">
         {!! Form::label('published_at', 'Опубликовано:') !!}

@@ -25,7 +25,10 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->update($request->all());
-        return redirect()->route('admin_panel.categories')->with('message', 'Категория обновлена.');
+        return redirect()->route('admin_panel.categories')->with([
+            'flash_message' => 'Категория обновлена!',
+            'flash_message_important' => true
+        ]);
     }
 
     public function create()
@@ -45,7 +48,10 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::findOrFail($id)->delete();
-        return redirect()->route('admin_panel.categories')->with('message', 'Категория удалена.');
+        return redirect()->route('admin_panel.categories')->with([
+            'flash_message' => 'Категория удалена!',
+            'flash_message_important' => true
+        ]);
     }
 
 }

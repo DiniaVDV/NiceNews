@@ -78,12 +78,9 @@ class ArticlesController extends Controller
     public function store(ArticleRequest $request)
     {
         $this->createArticle($request);
-        //Article::create($request->all());
-        //session()->flash('flash_message', 'You article has been created!');
         return redirect('admin_panel/articles')->with([
             'flash_message' => 'You article has been created!',
             'flash_message_important' => true
-
         ]);
     }
 
@@ -99,7 +96,7 @@ class ArticlesController extends Controller
         if (Gate::denies('edit-article', $article)) {
             abort(403, 'Unauthorized action.');
         }
-       // $article = Article::findOrFail($id);
+
         $tags = Tag::pluck('name', 'id');
         $categories = Category::pluck('title', 'id');
         return view('admin.articles.edit', compact('article', 'tags', 'categories'));
@@ -117,13 +114,19 @@ class ArticlesController extends Controller
         $article = Article::findOrFail($id);
         $article->update($data);
         $this->syncTags($article, $request->input('tag_list'));
-        return redirect()->route('admin_panel.articles')->with('message', 'Статья создана.');
+        return redirect()->route('admin_panel.articles')->with([
+            'flash_message' => 'Статья создана!',
+            'flash_message_important' => true
+        ]);
 
     }
     public function destroy($id)
     {
         Article::findOrFail($id)->delete();
-        return redirect()->route('admin_panel.articles')->with('message', 'Новость удалена.');;
+        return redirect()->route('admin_panel.articles')->with([
+            'flash_message' => 'Статья удалена!',
+            'flash_message_important' => true
+        ]);
     }
 
     /**

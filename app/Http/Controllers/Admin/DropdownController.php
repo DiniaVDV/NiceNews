@@ -11,7 +11,6 @@ class DropdownController extends Controller
     public function index()
     {
         $dropdowns = Dropdown::all();
-
         return view('admin.dropdown.show', compact('dropdowns'));
     }
 
@@ -39,12 +38,18 @@ class DropdownController extends Controller
     {
         $dropdown = Dropdown::findOrFail($id);
         $dropdown->update($request->all());
-        return redirect()->route('admin_panel.dropdown')->with('message', 'Пункт меню обновлена.');
+        return redirect()->route('admin_panel.dropdown')->with([
+            'flash_message' => 'Пункт меню обновлена!',
+            'flash_message_important' => true
+        ]);
     }
     public function destroy($id)
     {
         Dropdown::findOrFail($id)->delete();
-        return redirect()->route('admin_panel.dropdown')->with('message', 'Пункт меню удален.');
+        return redirect()->route('admin_panel.dropdown')->with([
+            'flash_message' => 'Пункт меню удален!',
+            'flash_message_important' => true
+        ]);
     }
 
 }

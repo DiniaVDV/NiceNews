@@ -2,6 +2,7 @@
 @section('content')
 
     <h1 class="page-header">Статьи</h1>
+    @include('admin.partials.flash')
     <div class=bs-example data-example-id=striped-table>
         <table class="table table-hover">
             <thead>
