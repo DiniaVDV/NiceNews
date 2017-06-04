@@ -66,7 +66,7 @@ class ArticlesController extends Controller
 
     public function create()
     {
-        $tags = Tag::pluck('name', 'id');
+        $tags = Tag::getTagsId();
         return view('articles.create', compact('tags'));
     }
 
@@ -107,7 +107,7 @@ class ArticlesController extends Controller
             abort(403, 'Unauthorized action.');
         }
         // $article = Article::findOrFail($id);
-        $tags = Tag::pluck('name', 'id');
+        $tags = Tag::getTagsId();
         return view('articles.edit', compact('article', 'tags'));
 
     }
@@ -169,23 +169,25 @@ class ArticlesController extends Controller
        $categoriesId = isset($result['category_id']) ? $result['category_id'] : null;
        $date = isset($result['datepicker1']) ? $result['datepicker1'] : null;
 
+       $articles = array();
+       $articleTags = array();
        $articlesCategory = array();
-       if(isset($categoriesId)){
+       $articleDate = array();
+       if(!empty($categoriesId)){
            foreach ($categoriesId as $categoryId){
                $articlesCategory[] = Category::findOrFail($categoryId)->articles()->get();
            }
        }
-       $articles = array();
 
-       if(!is_null($articlesCategory)){
-           if(!is_null($tagList)){
+       if(!empty($articlesCategory)){
+           if(!empty($tagList)){
                foreach($tagList as $tagId){
                    foreach ($articlesCategory as $articleCategory) {
                        foreach ($articleCategory as $article) {
                            $tags = $article->tags()->get();
                            foreach ($tags as $tag) {
                                if ($tagId == $tag->id) {
-                                   if (!is_null($date)) {
+                                   if (!empty($date)) {
                                        if ($article->published_at->format('m/d/Y') == $date) {
                                            $articles[] = $article;
                                            dd($tag->id);
@@ -201,7 +203,7 @@ class ArticlesController extends Controller
            }else{
                foreach ($articlesCategory as $articleCategory){
                    foreach ($articleCategory as $article) {
-                       if (!is_null($date)) {
+                       if (!empty($date)) {
                            if ($article->published_at->format('m/d/Y') == $date) {
                                $articles[] = $article;
                            }
@@ -212,8 +214,32 @@ class ArticlesController extends Controller
                }
            }
        }else{
+           if(!empty($tagList)){
+               foreach ($tagList as $tagId){
+                    $articleTags = Tag::findOrFail($tagId)->articles()->get();
+                    foreach ($articleTags as $article){
+                        if (!empty($date)) {
+                            if ($article->published_at->format('m/d/Y') == $date) {
+                                $articles[] = $article;
+                            }
+                        }else{
+                            $articles[] = $article;
+                        }
+                    }
+               }
 
+           }else{
+               if(!empty($date)) {
+                   $allArticles = Article::all();
+                   foreach ($allArticles as $article) {
+                       if($article->published_at->format('m/d/Y') == $date){
+                           $articles[] = $article;
+                       }
+                   }
+               }
+           }
        }
+
        return view('pages.found', compact('articles'));
     }
 }

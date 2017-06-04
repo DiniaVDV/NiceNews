@@ -2,7 +2,7 @@
 @section('body')
 	@include('partials.nav')
 	@include('layouts.slide')
-	@if(isset($tags))
+	@if(isset($tags) && isset($categoriesList))
 		@include('partials.finder')
 	@endif
 		<div class="container page_wrapper">

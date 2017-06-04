@@ -12,7 +12,7 @@
 
     <div class="form-group">
         {!! Form::label('status', 'Статус:') !!}
-        {!! Form::select('status', ['publised' => 'Опубликовано', 'check' => 'Ожидается'],  null, ['id' => 'status', 'class' => 'form-control']) !!}
+        {!! Form::select('status', ['published' => 'Опубликовано', 'check' => 'Ожидается'],  null, ['id' => 'status', 'class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">

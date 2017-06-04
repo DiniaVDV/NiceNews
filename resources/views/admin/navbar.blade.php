@@ -12,9 +12,10 @@
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-envelope fa-fw"></i><span class="badge numMessage"></span> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
+
                     @foreach($lastFourComments['lastFourComments'] as $lastFourComment)
                         <li>
                             <a href="{{ asset('admin_panel/comments') }}/{{$lastFourComment->id}}/edit">
@@ -130,3 +131,8 @@
             <!-- /.sidebar-collapse -->
         </div>
     </nav>
+    <script>
+        var numMessages = $('.divider').length - 1;
+        console.log(numMessages);
+        $('.numMessage').text(numMessages);
+    </script>

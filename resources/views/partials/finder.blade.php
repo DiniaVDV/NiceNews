@@ -10,7 +10,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 {!! Form::label('tag_list', 'Тег:') !!}
-                {!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
+                {!! Form::select('tag_list[]', $tags, null, ['class' => 'form-control tag_list', 'multiple']) !!}
             </div>
         </div>
         <div class="col-md-3">

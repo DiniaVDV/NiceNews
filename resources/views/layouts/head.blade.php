@@ -18,7 +18,7 @@
     <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('js/jquery.cookie.js') }}" type="text/javascript" ></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="SHORTCUT ICON" href="{{ asset('/favicon.png') }}" type="image/png">
+    <link rel="SHORTCUT ICON" href="{{ asset('/logo.png') }}" type="image/png">
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),

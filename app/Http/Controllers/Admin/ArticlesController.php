@@ -63,7 +63,7 @@ class ArticlesController extends Controller
 
     public function create()
     {
-        $tags = Tag::pluck('name', 'id');
+        $tags = Tag::getTagsId();
         $categories = Category::pluck('title', 'id');
         return view('admin.articles.create', compact('tags', 'categories'));
     }

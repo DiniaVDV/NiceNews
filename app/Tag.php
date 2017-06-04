@@ -38,5 +38,11 @@ class Tag extends Model
 		$articles = Tag::find($tagId)->articles()->orderBy('published_at')->paginate(1);
         return array('articles' => $articles, 'tag' => $tag );
     }
+
+    public static function getTagsId()
+    {
+        $tags = Tag::pluck('name', 'id');
+        return $tags;
+    }
 	
 }

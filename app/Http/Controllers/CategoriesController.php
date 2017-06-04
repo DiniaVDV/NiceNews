@@ -22,7 +22,7 @@ class CategoriesController extends Controller
 
     public function indexCat()
     {
-        $tags = Tag::pluck('name', 'id');
+        $tags = Tag::getTagsId();
         $categoriesList = Category::pluck('title', 'id');
         $categoryArticles = Category::getArticlesForCategories();
 		$specCategoryArticles = Article::getSpecArticles();

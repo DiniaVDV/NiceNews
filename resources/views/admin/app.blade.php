@@ -31,7 +31,7 @@
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/style.css') }}"  rel="stylesheet">
 	<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link rel="SHORTCUT ICON" href="{{ asset('/favicon.png') }}" type="image/png">
+    <link rel="SHORTCUT ICON" href="{{ asset('logo.png') }}" type="image/png">
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
