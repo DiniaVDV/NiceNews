@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 class ArticlesController extends Controller
 {
 
+    protected $dates = ['dob'];
     /**
      * Create a new articles controller instance.
      */
@@ -94,6 +95,10 @@ class ArticlesController extends Controller
      * @return Response
      */
 
+    /**
+     * @param Article $article
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit(Article $article)
     {
 
@@ -107,6 +112,11 @@ class ArticlesController extends Controller
 
     }
 
+    /**
+     * @param Article $article
+     * @param ArticleRequest $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function update(Article $article, ArticleRequest $request)
     {
         $article->update($request->all());
@@ -148,13 +158,17 @@ class ArticlesController extends Controller
         return $article;
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function find(Request $request)
     {
        $result = $request->all();
-       $tagList = $result['tag_list'];
-       $categoriesId = $result['category_id'];
-       $date = $result['datepicker1'];
-       $articlesTag = array();
+       $tagList = isset($result['tag_list']) ? $result['tag_list'] : null;
+       $categoriesId = isset($result['category_id']) ? $result['category_id'] : null;
+       $date = isset($result['datepicker1']) ? $result['datepicker1'] : null;
+
        $articlesCategory = array();
        if(isset($categoriesId)){
            foreach ($categoriesId as $categoryId){
@@ -162,17 +176,21 @@ class ArticlesController extends Controller
            }
        }
        $articles = array();
-       $articlesTags = array();
-       if(isset($articlesCategory)){
-           if(isset($tagList)){
+
+       if(!is_null($articlesCategory)){
+           if(!is_null($tagList)){
                foreach($tagList as $tagId){
                    foreach ($articlesCategory as $articleCategory) {
                        foreach ($articleCategory as $article) {
                            $tags = $article->tags()->get();
-                           dd($tags);
                            foreach ($tags as $tag) {
                                if ($tagId == $tag->id) {
-                                   if ($article->created_at) {
+                                   if (!is_null($date)) {
+                                       if ($article->published_at->format('m/d/Y') == $date) {
+                                           $articles[] = $article;
+                                           dd($tag->id);
+                                       }
+                                   }else{
                                        $articles[] = $article;
                                    }
                                }
@@ -182,13 +200,19 @@ class ArticlesController extends Controller
                }
            }else{
                foreach ($articlesCategory as $articleCategory){
-                   if($articleCategory->created_at){
-                       $articles[] = $articleCategory;
+                   foreach ($articleCategory as $article) {
+                       if (!is_null($date)) {
+                           if ($article->published_at->format('m/d/Y') == $date) {
+                               $articles[] = $article;
+                           }
+                       }else{
+                           $articles[] = $article;
+                       }
                    }
                }
            }
        }else{
-            dd(1);
+
        }
        return view('pages.found', compact('articles'));
     }

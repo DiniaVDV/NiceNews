@@ -40,6 +40,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Article');
     }
 
+    /**
+     * @return bool
+     */
     public function isATeamManager(){
         return false;
 
@@ -62,8 +65,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Comment');
     }
-	
-	public function isThe($roleName)
+
+    /**
+     * @param $roleName
+     * @return bool
+     */
+    public function isThe($roleName)
     {
 		foreach($this->roles()->get() as $role){
 			if($role->name == $roleName){
@@ -71,9 +78,13 @@ class User extends Authenticatable
 			}
 		}
         return false;
-    }	
-	
-	public static function usersForComments($comments)
+    }
+
+    /**
+     * @param $comments
+     * @return array
+     */
+    public static function usersForComments($comments)
 	{
 		$users = array();
 		foreach($comments as $comment){

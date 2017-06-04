@@ -6,15 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 
 
+/**
+ * Class Comment
+ * @package App
+ */
 class Comment extends Model
 {
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'message',
         'status',
         'like'
     ];
 
+    /**
+     * @var array
+     */
     protected $dates = ['published_at'];
 
 	 /**
@@ -27,6 +37,9 @@ class Comment extends Model
         return $this->belongsToMany('App\Article');
     }
 
+    /**
+     * @return array
+     */
     public static function getTopUsers()
     {
 
@@ -51,6 +64,9 @@ class Comment extends Model
         return $this->belongsTo('App\User');
     }
 
+    /**
+     * @return array
+     */
     public static function getLastFourComments()
     {
         $user = array();
@@ -62,6 +78,10 @@ class Comment extends Model
         return array('lastFourComments' => $lastFourComments, 'user' => $user);
     }
 
+    /**
+     * @param $comment
+     * @return string
+     */
     public static function catComments($comment)
     {
         $comment = substr($comment, 0, 20);

@@ -4,7 +4,7 @@
 
     <div>
         <h1>Вы искали:</h1>
-        @if(isset($artilcles))
+        @if(isset($articles))
             @foreach($articles as $article)
                         <h4><a href="{{asset('/articles')}}/{{$article->id}}" style="color: black">{{$article->title}}</a></h4>
             @endforeach

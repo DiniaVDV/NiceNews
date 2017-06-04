@@ -11,6 +11,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Article extends Model
 {
+    /**
+     * @var array
+     */
     protected $fillable =[
         'title',
         'body',
@@ -20,18 +23,30 @@ class Article extends Model
         'special_section',
     ];
 
+    /**
+     * @var array
+     */
     protected $dates = ['published_at'];
-    //
+
+    /**
+     * @param $query
+     */
     public function scopePublished($query)
     {
         $query->where('published_at', '<=', Carbon::now());
     }
 
+    /**
+     * @param $query
+     */
     public function scopeUnpublished($query)
     {
         $query->where('published_at', '>', Carbon::now());
     }
 
+    /**
+     * @param $date
+     */
     public function setPublishedAtAttribute($date)
     {
         $this->attributes['published_at'] = Carbon::parse($date);
@@ -76,13 +91,20 @@ class Article extends Model
 	{
         return $this->tags->pluck('id')->toArray();
     }
-	
-	public static function getLastThreeArticles()
+
+    /**
+     * @return mixed
+     */
+    public static function getLastThreeArticles()
 	{
 		return self::orderBy('created_at', "desc")->limit(3)->get();
 	}
-	
-	public static function getSpecialArticle($article)
+
+    /**
+     * @param $article
+     * @return mixed
+     */
+    public static function getSpecialArticle($article)
     {
 		$shortArrayOfsentenses = array();
 		$arrayOfsentenses = explode('.', $article->body);
@@ -101,8 +123,12 @@ class Article extends Model
 				
         return $catedArticle;
     }
-	
-	public static function checkArticleOnSpec($article)
+
+    /**
+     * @param $article
+     * @return mixed|null
+     */
+    public static function checkArticleOnSpec($article)
 	{
 	
 		 if($article->special_section == 1){			 
@@ -113,7 +139,11 @@ class Article extends Model
 	   
 	   return $catedArticle;
 	}
-	public static function getSpecArticles()
+
+    /**
+     * @return mixed
+     */
+    public static function getSpecArticles()
 	{
 		$articles = self::where('special_section', 1)->orderBy('created_at', "desc")->paginate(5);
 		return $articles;
@@ -128,6 +158,9 @@ class Article extends Model
         return $this->belongsToMany('App\Comment');
     }
 
+    /**
+     * @return array
+     */
     public static function getTopArticles()
     {
         $topArticlesCount = array();
@@ -160,6 +193,10 @@ class Article extends Model
     }
 
 
+    /**
+     * @param $articles
+     * @return array
+     */
     public static function getCategories($articles)
     {
         $categories = array();
@@ -168,6 +205,12 @@ class Article extends Model
         }
         return $categories;
     }
+
+
+    /**
+     * @param $articles
+     * @return array
+     */
     public static function getUsers($articles)
     {
         $categories = array();

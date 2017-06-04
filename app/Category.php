@@ -8,8 +8,14 @@ use App\Article;
 class Category extends Model
 {
 
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'name',
         'title',
@@ -17,12 +23,21 @@ class Category extends Model
         'special_category',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public static function listOfCategories()
 	{
 		return self::all();
 	}
-	
 
+
+    /**
+     * Get articles by category name.
+     *
+     * @param $categoryName
+     * @return array
+     */
     public static function getArticles($categoryName)
 	{
 		$category = self::where('name', $categoryName)->first();
@@ -38,9 +53,12 @@ class Category extends Model
 			$articles = self::getArticlesById($categoryId);
 		}
 		return array( 'articles' => $articles, 'category' =>  $category );
-	}	
-	
-	public static function getArticlesForCategories()
+	}
+
+    /**
+     * @return array
+     */
+    public static function getArticlesForCategories()
 	{
 		$categoryArticles= array();
 		$categories = self::all();
@@ -51,9 +69,13 @@ class Category extends Model
 		}
 		
 		return $categoryArticles;
-	}	
-	
-	public static function getArticlesById($categoryId)
+	}
+
+    /**
+     * @param $categoryId
+     * @return mixed
+     */
+    public static function getArticlesById($categoryId)
 	{
 		$articles = self::find($categoryId)->articles()->orderBy('published_at')->paginate(4);
 		return $articles;

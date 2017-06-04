@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Background extends Model
 {
     public $timestamps = false;
+
     protected $fillable = [
         'header_color',
         'header_color_apply',

@@ -16,8 +16,6 @@ class Advert extends Model
         'rightsidebar',
     ];
 
-
-
      public static function getAdverts()
 	{
 		return Advert::orderBy('position')->get();

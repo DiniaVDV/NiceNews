@@ -17,7 +17,7 @@
                 <ul class="dropdown-menu dropdown-messages">
                     @foreach($lastFourComments['lastFourComments'] as $lastFourComment)
                         <li>
-                            <a href="#">
+                            <a href="{{ asset('admin_panel/comments') }}/{{$lastFourComment->id}}/edit">
                                 <div>
                                     <strong>{{$lastFourComments['user'][$lastFourComment->id][0]->name}}</strong>
                                     <span class="pull-right text-muted">

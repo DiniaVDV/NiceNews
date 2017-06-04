@@ -25,9 +25,13 @@ class Tag extends Model
 	{
         return $this->belongsToMany('App\Article');
     }
-	
-	
-	public static function getTagId($tagName)
+
+
+    /**
+     * @param $tagName
+     * @return array
+     */
+    public static function getTagId($tagName)
 	{
 		$tag = self::where('name', $tagName)->first();
 		$tagId = $tag->id;
