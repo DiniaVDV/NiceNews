@@ -128,6 +128,35 @@ class Article extends Model
         return $this->belongsToMany('App\Comment');
     }
 
+    public static function getTopArticles()
+    {
+        $topArticlesCount = array();
+        $articles = self::all();
+        foreach ($articles as $article){
+            $topArticlesCount[$article->id] = self::find($article->id)->comments()->where('created_at', Carbon::now())->groupBy('article_id')->count();
+        }
+
+        arsort($topArticlesCount);
+        $top3IdArticles = array();
+        $i = 1;
+        foreach ($topArticlesCount as $key => $countComment){
+            if($i < 4){
+                $top3IdArticles[$key] = $countComment;
+                $i++;
+            }else {
+                break;
+            }
+        }
+
+        $top3Articles = array();
+        foreach ($top3IdArticles as $article_id => $topcount){
+            $top3Articles[] = Article::findOrFail($article_id);
+        }
+
+        return $top3Articles;
+    }
+
+
     public static function getCategories($articles)
     {
         $categories = array();

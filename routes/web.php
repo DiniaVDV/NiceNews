@@ -14,14 +14,15 @@ use Illuminate\Http\Request;
 Route::get('/', 'CategoriesController@indexCat');
 
 
-Route::get('/about', 'PagesController@about');
+Route::get('/profile/{id}', 'UserController@profile');
+Route::get('/user/{id}/comments', 'UserController@showComments');
 
-Route::get('/contact', 'PagesController@contact');
 Route::get('/articles',  'ArticlesController@index');
 Route::get('/articles/{id}',  'ArticlesController@show');
 //Route::resource('/articles', 'ArticlesController');
 
 Route::get('/categories/{name}', 'CategoriesController@showListArticles');
+Route::get('/user/{id}/comments/', 'UserController@showComments');
 Route::get('/tags/{name}', 'TagsController@showListArticlesByTag');
 Route::get('/addComment', 'CommentsController@store');
 Route::get('/countLikes', 'CommentsController@countLikes');
@@ -37,13 +38,18 @@ Route::group(['prefix' => 'admin_panel', 'namespace' => 'Admin'], function()
     Route::get('/category/{id}/delete', 'CategoryController@destroy');
     Route::get('/category/create', 'CategoryController@create');
     Route::post('/category', 'CategoryController@store');
-    Route::post('/navbar/edit', 'NavbarController@edit');
     Route::resource('/articles', 'ArticlesController');
     Route::get('/articles/{id}/delete', 'ArticlesController@destroy');
     Route::get('/articles', 'ArticlesController@index')->name('admin_panel.articles');
 
     Route::resource('/adverts', 'AdvertsController');
     Route::get('/adverts/{id}/delete', 'AdvertsController@destroy');
+
+    Route::resource('/dropdown', 'DropdownController');
+    Route::get('/dropdown', 'DropdownController@index')->name('admin_panel.dropdown');
+    Route::get('/dropdown/{id}/delete', 'DropdownController@destroy');
+
     Route::get('/color_background', 'AdminController@changeBackgroundBody');
+    Route::post('/color_background', 'AdminController@applyBackgroundBody');
 });
 

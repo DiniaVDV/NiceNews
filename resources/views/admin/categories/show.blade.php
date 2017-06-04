@@ -2,7 +2,7 @@
 @section('content')
     <h1 class="page-header">Категории</h1>
     <div class=bs-example data-example-id=striped-table>
-        <table class="table table-striped">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th>Id</th>
@@ -22,8 +22,8 @@
                     <td align="center"><strong>{{$category->position}}</strong></td>
                     <td align="center"><strong>{{$category->special_category}}</strong></td>
                     <td align="center">
-                        <a href="{{asset('admin_panel/category')}}/{{$category->id}}/edit"><button class='btn btn-sm btn-primary'>edit</button></a>
-                        <a href="{{asset('admin_panel/category')}}/{{$category->id}}/delete" onclick="return confirmDelete('категорию')"><button class='btn btn-sm btn-warning'>delete</button></a>
+                        <a href="{{asset('admin_panel/category')}}/{{$category->id}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a href="{{asset('admin_panel/category')}}/{{$category->id}}/delete" onclick="return confirmDelete('категорию')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             </tbody>

@@ -12,7 +12,6 @@ $('.advert').bind({
 		
 });
 
-
 // window.onunload = function(){
 	// return('Вы действительно хотите покинуть сай?');
 // };

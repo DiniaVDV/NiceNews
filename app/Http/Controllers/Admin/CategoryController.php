@@ -14,37 +14,33 @@ class CategoryController extends Controller
         $categories = Category::paginate(10);
         return view('admin.categories.show', compact('categories'));
     }
+
     public function edit($id)
     {
         $category = Category::findOrFail($id);
         return view('admin.categories.edit', compact('category'));
     }
+
     public function update($id, CategoryRequest $request)
     {
         $category = Category::findOrFail($id);
         $category->update($request->all());
-
-        return redirect()->route('admin_panel.categories')->with('message', 'Категория создана.');
+        return redirect()->route('admin_panel.categories')->with('message', 'Категория обновлена.');
     }
+
     public function create()
     {
-
-        return view('admin.categories.create')->with('message', 'Категория создана.');
+        return view('admin.categories.create');
     }
+
     public function store(CategoryRequest $request)
     {
-
         Category::create($request->all());
-
-        //Article::create($request->all());
-        //session()->flash('flash_message', 'You article has been created!');
         return redirect('admin_panel/categories')->with([
             'flash_message' => 'Категория была довавлена!',
             'flash_message_important' => true
-
         ]);
     }
-
 
     public function destroy($id)
     {

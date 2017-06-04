@@ -3,7 +3,7 @@
 
     <h1 class="page-header">Статьи</h1>
     <div class=bs-example data-example-id=striped-table>
-        <table class="table table-striped">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th>Id</th>
@@ -23,8 +23,8 @@
                     <td align="center"><strong>{{$article->category_id}}</strong></td>
                     <td align="center"><strong>{{$categories[$article->id][0]->title}}</strong></td>
                     <td align="center">
-                        <a href="{{asset('admin_panel/articles')}}/{{$article->id}}/edit"><button class='btn btn-sm btn-primary'>edit</button></a>
-                        <a href="{{asset('admin_panel/articles')}}/{{$article->id}}/delete" onclick="return confirmDelete('статью')"><button class='btn btn-sm btn-warning'>delete</button></a>
+                        <a href="{{asset('admin_panel/articles')}}/{{$article->id}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a href="{{asset('admin_panel/articles')}}/{{$article->id}}/delete" onclick="return confirmDelete('статью')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             </tbody>

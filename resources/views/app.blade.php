@@ -39,16 +39,19 @@
                 $( "#datepicker2" ).datepicker( "option", "showAnim", $( this ).val() );
             });
         } );
+        var backgroundList = <?=json_encode($backgroundList)?>;
+        console.log(backgroundList[0].body_color);
+
 	</script>
 
 
 </head>
 	<body>
-{{--	<p>Date: <input type="text" id="datepicker1" size="30"></p>
-	<p>Date: <input type="text" id="datepicker2" size="30"></p>--}}
 		@yield('body')
 		<script>
 			$('div.alert').not('.alert-important').delay(3000).slideUp(300);
+            $('body').css("background-color", backgroundList[0].body_color );
+            $('.main_navbar').css("background-color", backgroundList[0].header_color );
 		</script>
 		<script src="{{ asset('js/select2.min.js') }}"></script>
 		<script src="{{ asset('js/main.js') }}"></script>

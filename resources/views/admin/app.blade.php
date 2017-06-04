@@ -26,7 +26,6 @@
 
     <!-- Custom Fonts -->
     <link href="{{ asset('/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/color-picker.min.css') }}"  rel="stylesheet">
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/style.css') }}"  rel="stylesheet">

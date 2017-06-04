@@ -1,21 +1,27 @@
 @extends('admin.app')
 @section('content')
-    <form style="margin-top: 115px">
-        <div class="form-group">
-            <label for="body_background">Выберите фон сайта</label>
-            <p><input type="text" id="body_background" class="form-control" style="width: 20%"></p>
+    {!! Form::model(['method' => 'PATCH', 'action' => ['Admin\AdminController@applyBackgroundBody'],  'files'=>true]) !!}
+        <div class="form-group"  style="width: 20%">
+            {!! Form::label('body_color', 'Выберите фон сайта:') !!}
+            {!! Form::text('body_color', null, ['class' => 'form-control']) !!}
         </div>
-        <div class="form-group">
-            <label for="head_background">Выберите фон шапки</label>
-            <p><input type="text" id="head_background" class="form-control" style="width: 20%"></p>
+
+    <input type="submit" class="btn btn-success" value="Ok"/>
+    {!! Form::close() !!}
+
+    {!! Form::model(['method' => 'PATCH', 'action' => ['Admin\AdminController@applyBackgroundBody'],  'files'=>true]) !!}
+         <div class="form-group"  style="width: 20%">
+            {!! Form::label('header_color', 'Выберите фон шапки:') !!}
+            {!! Form::text('header_color', null, ['class' => 'form-control']) !!}
         </div>
+
         <input type="submit" class="btn btn-success" value="Ok"/>
-    </form>
+    {!! Form::close() !!}
     <script src="{{ asset('/js/color-picker.min.js') }}"></script>
     <script>
 
-        var picker = new CP(document.querySelector('#body_background'));
-        var picker2 = new CP(document.querySelector('#head_background'));
+        var picker = new CP(document.querySelector('#body_color'));
+        var picker2 = new CP(document.querySelector('#header_color'));
         picker.on("change", function(color) {
             this.target.value = '#' + color;
         });

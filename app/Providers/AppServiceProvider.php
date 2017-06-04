@@ -16,9 +16,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+		View::share('backgroundList', \App\Background::all());
 		View::share('categories', \App\Category::listOfCategories());
 		View::share('adverts', \App\Advert::getAdverts());
-		View::share('navbar', \App\Navbar::all());
+		View::share('dropdown', \App\Dropdown::all());
 		View::share('lastArticles', \App\Article::getLastThreeArticles());
     }
 

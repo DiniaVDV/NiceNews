@@ -17,8 +17,7 @@ class AdvertsController extends Controller
 
     public function create()
     {
-
-        return view('admin.adverts.create')->with('message', 'Категория создана.');
+        return view('admin.adverts.create');
     }
 
     public function store(AdvertsRequest $request)
@@ -32,6 +31,18 @@ class AdvertsController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+        $advert = Advert::findOrFail($id);
+        return view('admin.adverts.edit', compact('advert'));
+    }
+
+    public function update($id, AdvertsRequest $request)
+    {
+        $advert = Advert::findOrFail($id);
+        $advert->update($request->all());
+        return redirect('admin_panel/adverts')->with('message', 'Реклама обновлена.');
+    }
 
     public function destroy($id)
     {
